@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "organisation" ALTER COLUMN "address" DROP NOT NULL,
+ALTER COLUMN "phone" DROP NOT NULL,
+ALTER COLUMN "email" DROP NOT NULL;

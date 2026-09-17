@@ -1,0 +1,145 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id            String    @id
+  name          String
+  email         String
+  mobile        String?
+  emailVerified Boolean   @default(false)
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  role          String?
+  banned        Boolean?  @default(false)
+  banReason     String?
+  banExpires    DateTime?
+  sessions      Session[]
+  accounts      Account[]
+  receipts      Receipt[]
+  organisations  Organisation[]
+  media         Media[]
+  @@unique([email])
+
+  @@map("user")
+}
+
+model Session {
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id             String   @id
+  expiresAt      DateTime
+  token          String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  ipAddress      String?
+  userAgent      String?
+  userId         String
+  impersonatedBy String?
+
+  @@unique([token])
+  @@index([userId])
+  @@map("session")
+}
+
+model Account {
+  user                  User      @relation(fields: [userId], references: [id])
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@index([userId])
+  @@map("account")
+}
+
+model Verification {
+  id         String   @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+  @@map("verification")
+}
+
+model RateLimit {
+  id          String @id
+  key         String
+  count       Int
+  lastRequest BigInt
+
+  @@unique([key])
+  @@map("rateLimit")
+}
+model Organisation{
+  user                  User     @relation(fields: [userId], references: [id])
+  id                    String @id @default(uuid())
+  userId                String
+  name                  String 
+  address               String?
+  phone                 String?
+  email                 String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+  logoId                String?  @unique
+  logo                  Media?   @relation("OrganisationLogo", fields: [logoId], references: [id])
+  signatureId           String?  @unique
+  signature             Media?   @relation("OrganisationSignature", fields: [signatureId], references: [id])  
+
+  @@unique([id])
+  @@map("organisation")
+
+}
+
+
+model Media{
+  id                    String @id @default(uuid())
+  orgId                 String
+  path                  String
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+  type                  String
+  userId                String
+  @@index([id])
+  @@unique([id])
+  user                  User      @relation(fields: [userId], references: [id])
+  organisationLogoOf     Organisation? @relation("OrganisationLogo")
+  organisationSignatureOf Organisation? @relation("OrganisationSignature")
+  @@map("media")
+}
+model Receipt{
+  user                  User     @relation(fields: [userId], references: [id])
+  id                    String @id @default(uuid())
+  userId                String
+  name                  String
+  status                String?
+  amount                Decimal
+  description           String
+  paymentMode           String
+  receiptDate           DateTime  @default(now())
+  paymentDate           DateTime  @default(now())  
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@index([id])
+  @@unique([id])
+  @@map("receipt")
+}
+

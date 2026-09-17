@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{app_name}} – Please verify your email</title>
+  <style>
+
+    body, table, td, a {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+    body { margin: 0; padding: 0; background-color: #f0ede8; font-family: 'DM Sans', Arial, sans-serif; }
+  </style>
+</head>
+<body style="margin:0; padding:0; background-color:#f0ede8;">
+
+  <!-- Outer wrapper -->
+  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"
+         style="background-color:#f0ede8; padding: 48px 16px;">
+    <tr>
+      <td align="center">
+
+        <!-- Card -->
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="520"
+               style="max-width:520px; background-color:#ffffff; border-radius:16px;
+                      box-shadow: 0 4px 32px rgba(0,0,0,0.08); overflow:hidden;">
+
+          <!-- Header band -->
+          <tr>
+            <td style="background-color:#111111; padding: 36px 48px 32px; text-align:left;">
+              <!-- Brand mark -->
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="vertical-align:middle;">
+                    <span style="font-family:'DM Sans', Arial, sans-serif;
+                                 font-size:17px; font-weight:600; color:#ffffff;
+                                 letter-spacing:-0.3px;">{{app_name}}</span>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin: 24px 0 0; font-family:'DM Sans', Arial, sans-serif;
+                         font-size:24px; font-weight:600; color:#ffffff;
+                         letter-spacing:-0.5px; line-height:1.3;">
+                Verify your email
+              </p>
+              <p style="margin: 6px 0 0; font-family:'DM Sans', Arial, sans-serif;
+                         font-size:14px; color:#888888; line-height:1.5;">
+                Use link below to verify your email
+              </p>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding: 40px 48px 16px;">
+              <p style="margin:0 0 8px; font-family:'DM Sans', Arial, sans-serif;
+                         font-size:14px; color:#888888; letter-spacing:0.6px;">Hi,</p>
+              <p style="margin:0 0 32px; font-family:'DM Sans', Arial, sans-serif;
+                         font-size:15px; color:#444444; line-height:1.7;">
+                Please click the button below to verify your email with {{app_name}}.
+              </p>
+
+
+              <!-- Warning -->
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"
+                     style="margin-top: 20px;">
+                    <td style="text-align: center;">
+                      <a href="{{verification_url}}"
+                        target="_blank"
+                        style="display: inline-block;
+                                font-family: 'DM Sans', Arial, sans-serif;
+                                font-size: 14px;
+                                font-weight: 600;
+                                color: #ffffff;
+                                background-color: #111111;
+                                text-decoration: none;
+                                padding: 14px 28px;
+                                border-radius: 8px;
+                                letter-spacing: -0.1px;
+                                box-shadow: 0 2px 8px rgba(0,0,0,0.12);">
+                        Verify my email →
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                  <td style="height: 24px; font-size: 0; line-height: 0;">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td style="background-color:#fff8e6; border-left: 3px solid #f5c842;
+                             border-radius: 0 8px 8px 0; padding: 14px 16px;">
+                    <p style="margin:0; font-family:'DM Sans', Arial, sans-serif;
+                               font-size:13px; color:#7a6200; line-height:1.6;">
+                      🔒 <strong>To ensure the safety of your account, please don't share this email.</strong>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <br />
+          <!-- Divider -->
+          <tr>
+            <td style="padding: 28px 48px 0;">
+              <hr style="border:none; border-top: 1px solid #eeebe6; margin:0;" />
+            </td>
+          </tr>
+
+          <!-- Footer -->
+        
+        </table>
+        <!-- /Card -->
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

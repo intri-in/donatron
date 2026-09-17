@@ -1,0 +1,17 @@
+{
+  "ERROR_GENERIC_MESSAGE": "Something went wrong. Please check the logs.",
+  "ERROR_GENERIC": "Something went wrong. Please check the logs.",
+  "ERROR_INVALID_NAME": "Please enter a valid name.",
+  "ERROR_INVALID_EMAIL": "Please enter a valid email.",
+  "ERROR_VALID_PASSWORD": "Please enter a valid password. Password must have a minimum length of {{length}}.",
+  "ERROR_VALID_CONFIRM_PASSWORD": "Please confirm the password.",
+  "USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL": "User already exists. Use another email.",
+  "INVALID_OTP": "Please enter a valid OTP.",
+  "TOO_MANY_REQUESTS": "Too many requests. Please wait a while before retrying.",
+  "INVALID_EMAIL_OR_PASSWORD": "Invalid email or password.",
+  "EMAIL_UNVERIFIED_ERROR": "You need to verify your email to access this feature.",
+  "ERROR_ENTER_ORG_TITLE": "Please enter a valid organisation title.",
+  "ERROR_USER_DOESNT_HAVE_PERMISSION": "User does not have permission to perform requested action.",
+  "BAD_REQUEST": "Bad request.",
+  "ERROR_NO_USERS": "There are no users. Please sign up first."
+}
